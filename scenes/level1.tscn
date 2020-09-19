@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://sprites/player/idle.png" type="Texture" id=1]
 [ext_resource path="res://sprites/player/running.png" type="Texture" id=2]
@@ -10,53 +10,65 @@
 [ext_resource path="res://music/sfx/gravity.wav" type="AudioStream" id=8]
 [ext_resource path="res://music/sfx/invert.wav" type="AudioStream" id=9]
 [ext_resource path="res://music/sfx/death.wav" type="AudioStream" id=10]
+[ext_resource path="res://scenes/objetos/morte.tscn" type="PackedScene" id=11]
+[ext_resource path="res://sprites/tutorial/up_arrow.png" type="Texture" id=12]
+[ext_resource path="res://sprites/tutorial/xbox_a.png" type="Texture" id=13]
+[ext_resource path="res://sprites/tutorial/joystick.png" type="Texture" id=14]
+[ext_resource path="res://sprites/objects/BluePlanet.png" type="Texture" id=15]
+[ext_resource path="res://sprites/objects/back.png" type="Texture" id=16]
+[ext_resource path="res://ARCADECLASSIC.TTF" type="DynamicFontData" id=17]
+[ext_resource path="res://scenes/level1.gd" type="Script" id=18]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 0.66
+glow_blend_mode = 0
+glow_hdr_threshold = 0.79
+glow_bicubic_upscale = true
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 27.8838, 42.9434 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
-region = Rect2( 60, 0, 60, 85 )
+region = Rect2( 0, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
-region = Rect2( 120, 0, 60, 85 )
+region = Rect2( 60, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
-region = Rect2( 180, 0, 60, 85 )
+region = Rect2( 120, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 1 )
-region = Rect2( 240, 0, 60, 85 )
+region = Rect2( 180, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 60, 85 )
+atlas = ExtResource( 1 )
+region = Rect2( 240, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
-region = Rect2( 60, 0, 60, 85 )
+region = Rect2( 0, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
-region = Rect2( 120, 0, 60, 85 )
+region = Rect2( 60, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
-region = Rect2( 180, 0, 60, 85 )
+region = Rect2( 120, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
-region = Rect2( 240, 0, 60, 85 )
+region = Rect2( 180, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 3 )
-region = Rect2( 60, 0, 60, 85 )
+atlas = ExtResource( 2 )
+region = Rect2( 240, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 3 )
@@ -66,33 +78,167 @@ region = Rect2( 120, 0, 60, 85 )
 atlas = ExtResource( 3 )
 region = Rect2( 180, 0, 60, 85 )
 
-[sub_resource type="SpriteFrames" id=15]
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 3 )
+region = Rect2( 60, 0, 60, 85 )
+
+[sub_resource type="SpriteFrames" id=16]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "idle",
 "speed": 6.0
 }, {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
 "name": "run",
 "speed": 15.0
-}, {
-"frames": [ SubResource( 12 ) ],
-"loop": false,
-"name": "jump",
-"speed": 10.0
 }, {
 "frames": [ SubResource( 13 ), SubResource( 14 ) ],
 "loop": true,
 "name": "fall",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 15 ) ],
+"loop": false,
+"name": "jump",
+"speed": 10.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=16]
-extents = Vector2( 3616, 40.0001 )
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 12 )
+region = Rect2( 160, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 12 )
+region = Rect2( 320, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 12 )
+region = Rect2( 480, 0, 160, 160 )
+
+[sub_resource type="SpriteFrames" id=21]
+animations = [ {
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": true,
+"name": "up",
+"speed": 10.0
+} ]
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 13 )
+region = Rect2( 160, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 13 )
+region = Rect2( 320, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 13 )
+region = Rect2( 480, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 13 )
+region = Rect2( 640, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 13 )
+region = Rect2( 800, 0, 160, 160 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 80, 80 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 14 )
+region = Rect2( 80, 0, 80, 80 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 14 )
+region = Rect2( 160, 0, 80, 80 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 14 )
+region = Rect2( 240, 0, 80, 80 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 14 )
+region = Rect2( 320, 0, 80, 80 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 14 )
+region = Rect2( 400, 0, 80, 80 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 14 )
+region = Rect2( 480, 0, 80, 80 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 14 )
+region = Rect2( 560, 0, 80, 80 )
+
+[sub_resource type="SpriteFrames" id=36]
+animations = [ {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
+"loop": true,
+"name": "a",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
+"loop": true,
+"name": "xbox",
+"speed": 10.0
+} ]
+
+[sub_resource type="DynamicFont" id=37]
+size = 72
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=38]
+size = 72
+font_data = ExtResource( 17 )
+
+[sub_resource type="Animation" id=39]
+resource_name = "sans"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("arrow:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("joy:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 18 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 128, 920 )
@@ -102,10 +248,10 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
-frames = SubResource( 15 )
+frames = SubResource( 16 )
 animation = "fall"
 
 [node name="jump" type="AudioStreamPlayer" parent="Player"]
@@ -133,18 +279,132 @@ tile_set = ExtResource( 5 )
 cell_size = Vector2( 80, 80 )
 cell_tile_origin = 2
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 8, 0, 2, 8, 0, 3, 8, 0, 4, 8, 0, 5, 8, 0, 6, 8, 0, 7, 8, 0, 8, 8, 0, 9, 8, 0, 10, 8, 0, 11, 8, 0, 12, 8, 0, 13, 8, 0, 14, 8, 0, 15, 8, 0, 16, 8, 0, 17, 8, 0, 18, 8, 0, 19, 8, 0, 20, 8, 0, 21, 8, 0, 22, 8, 0, 23, 8, 0, 24, 8, 0, 25, 0, 0, 65536, 4, 0, 65561, 6, 0, 131072, 4, 0, 131097, 6, 0, 196608, 4, 0, 196633, 6, 0, 262144, 4, 0, 262169, 6, 0, 327680, 4, 0, 327705, 6, 0, 393216, 4, 0, 393241, 6, 0, 458752, 4, 0, 458777, 6, 0, 524288, 4, 0, 524313, 6, 0, 589824, 4, 0, 589849, 6, 0, 655360, 4, 0, 655385, 6, 0, 720896, 4, 0, 720921, 6, 0, 786432, 0, 0, 786433, 2, 0, 786434, 2, 0, 786435, 2, 0, 786436, 2, 0, 786437, 2, 0, 786438, 2, 0, 786439, 2, 0, 786440, 2, 0, 786441, 2, 0, 786442, 3, 0, 786447, 1, 0, 786448, 2, 0, 786449, 2, 0, 786450, 2, 0, 786451, 2, 0, 786452, 2, 0, 786453, 2, 0, 786454, 2, 0, 786455, 2, 0, 786456, 2, 0, 786457, 0, 0 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 8, 0, 2, 8, 0, 3, 8, 0, 4, 8, 0, 5, 8, 0, 6, 8, 0, 7, 8, 0, 8, 8, 0, 9, 8, 0, 10, 8, 0, 11, 8, 0, 12, 8, 0, 13, 8, 0, 14, 8, 0, 15, 8, 0, 16, 8, 0, 17, 8, 0, 18, 8, 0, 19, 8, 0, 20, 8, 0, 21, 8, 0, 22, 8, 0, 23, 8, 0, 24, 8, 0, 25, 0, 0, 65536, 4, 0, 65561, 6, 0, 131072, 4, 0, 131097, 6, 0, 196608, 4, 0, 196633, 6, 0, 262144, 4, 0, 262169, 6, 0, 327680, 4, 0, 327705, 6, 0, 393216, 4, 0, 393241, 6, 0, 458752, 4, 0, 458777, 6, 0, 524288, 4, 0, 524313, 6, 0, 589824, 4, 0, 589849, 7, 0, 655360, 4, 0, 720896, 4, 0, 786432, 0, 0, 786433, 2, 0, 786434, 2, 0, 786435, 2, 0, 786436, 2, 0, 786437, 2, 0, 786438, 2, 0, 786439, 2, 0, 786440, 2, 0, 786441, 2, 0, 786442, 3, 0, 786447, 1, 0, 786448, 2, 0, 786449, 2, 0, 786450, 2, 0, 786451, 2, 0, 786452, 2, 0, 786453, 2, 0, 786454, 2, 0, 786455, 2, 0, 786456, 2, 0, 786457, 0, 0 )
 
-[node name="morte" type="Area2D" parent="."]
+[node name="morte" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1024, 1088 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="morte"]
-position = Vector2( 1000, 1080 )
-shape = SubResource( 16 )
+[node name="controls" type="CanvasLayer" parent="."]
+layer = -1
 
-[node name="morte2" type="Area2D" parent="."]
+[node name="up" type="AnimatedSprite" parent="controls"]
+position = Vector2( -536, 336 )
+scale = Vector2( 0.8, 0.8 )
+z_index = -1
+frames = SubResource( 21 )
+animation = "up"
+frame = 2
+playing = true
+centered = false
+offset = Vector2( 1310, -100 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="morte2"]
-position = Vector2( 1064, -40 )
-shape = SubResource( 16 )
+[node name="down" type="AnimatedSprite" parent="controls"]
+position = Vector2( 512, 392 )
+scale = Vector2( 0.8, 0.8 )
+z_index = -1
+frames = SubResource( 21 )
+animation = "up"
+frame = 1
+playing = true
+centered = false
+flip_v = true
+
+[node name="right" type="AnimatedSprite" parent="controls"]
+position = Vector2( 648, 520 )
+rotation = -1.57079
+scale = Vector2( 0.8, 0.8 )
+z_index = -1
+frames = SubResource( 21 )
+animation = "up"
+playing = true
+centered = false
+flip_v = true
+
+[node name="right2" type="AnimatedSprite" parent="controls"]
+position = Vector2( 504, 392 )
+rotation = 1.57079
+scale = Vector2( 0.8, 0.8 )
+z_index = -1
+frames = SubResource( 21 )
+animation = "up"
+playing = true
+centered = false
+flip_v = true
+
+[node name="Joystick" type="AnimatedSprite" parent="controls"]
+position = Vector2( 1200, 432 )
+rotation = 3.14159
+scale = Vector2( 2, 2 )
+z_index = -1
+frames = SubResource( 36 )
+animation = "xbox"
+frame = 3
+playing = true
+offset = Vector2( 40, -12 )
+
+[node name="A" type="AnimatedSprite" parent="controls"]
+position = Vector2( 1440, 328 )
+scale = Vector2( 0.789959, 0.786912 )
+z_index = -1
+frames = SubResource( 36 )
+animation = "a"
+frame = 4
+playing = true
+offset = Vector2( 40, -12 )
+
+[node name="back" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="planet_blue" type="Sprite" parent="back"]
+position = Vector2( 1840, 360 )
+scale = Vector2( 1.66667, 1.66667 )
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="back" type="Sprite" parent="back"]
+modulate = Color( 1, 1, 1, 0.27451 )
+z_index = -4
+texture = ExtResource( 16 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="arrow" type="RichTextLabel" parent="Control"]
+margin_left = 384.0
+margin_top = 184.0
+margin_right = 784.0
+margin_bottom = 264.0
+custom_fonts/normal_font = SubResource( 37 )
+visible_characters = 0
+percent_visible = 0.0
+text = "arrow   keys"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="joy" type="RichTextLabel" parent="Control"]
+margin_left = 928.0
+margin_top = 288.0
+margin_right = 1728.0
+margin_bottom = 376.0
+custom_fonts/normal_font = SubResource( 38 )
+visible_characters = 0
+percent_visible = 0.0
+text = "joystick   and  "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+anims/sans = SubResource( 39 )
 [connection signal="body_entered" from="morte" to="Player" method="_on_morte_body_entered"]
-[connection signal="body_entered" from="morte2" to="Player" method="_on_morte_body_entered"]

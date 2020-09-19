@@ -11,9 +11,7 @@ var jump = false
 
 var flip = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+
 
 
 func _process(delta):
@@ -80,6 +78,10 @@ func morte():
 	CONEXÕES
 """
 
+#func _on_morte_body_entered(body):
+#	if body == get_parent().get_node("Player"):
+#		morte()
+
+
 func _on_morte_body_entered(body):
-	if body == get_parent().get_node("Player"):
-		morte()
+	morte()

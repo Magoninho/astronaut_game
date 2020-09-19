@@ -22,10 +22,8 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/width=2000
+window/size/width=2080
 window/size/height=1035
-window/size/test_width=2000
-window/size/test_height=1035
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
