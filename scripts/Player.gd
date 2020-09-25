@@ -11,10 +11,22 @@ var jump = false
 
 var flip = false
 
+var data = {
+	"level" : Global.current_level
+}
 
 
+func save_game():
+	var file = File.new()
+	file.open(Global.save_path, File.WRITE)
+	file.store_var(data)
+	file.close()
 
 func _process(delta):
+	if Input.is_action_just_pressed("save_teste"):
+		save_game()
+		
+	
 	if Input.is_action_just_pressed("invert_gravity"):
 		gravity *= -1
 		flip = !flip

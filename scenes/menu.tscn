@@ -58,6 +58,7 @@ texture = ExtResource( 9 )
 flip_h = true
 flip_v = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 

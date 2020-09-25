@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/Pause.gd" type="Script" id=1]
+[ext_resource path="res://ARCADECLASSIC.TTF" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+size = 128
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+font_data = ExtResource( 2 )
+
+[node name="Pause" type="CanvasLayer"]
+pause_mode = 2
+layer = 100
+
+[node name="Pause" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="overlay" type="ColorRect" parent="Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.52549 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vertical" type="VBoxContainer" parent="Pause/CenterContainer"]
+margin_left = 682.0
+margin_top = 333.0
+margin_right = 1398.0
+margin_bottom = 702.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title" type="Label" parent="Pause/CenterContainer/vertical"]
+margin_right = 716.0
+margin_bottom = 263.0
+custom_fonts/font = SubResource( 3 )
+text = "game paused
+"
+
+[node name="resume" type="HBoxContainer" parent="Pause/CenterContainer/vertical"]
+margin_top = 267.0
+margin_right = 716.0
+margin_bottom = 316.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selector" type="Label" parent="Pause/CenterContainer/vertical/resume"]
+margin_right = 34.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 1 )
+text = "!"
+
+[node name="Text" type="Label" parent="Pause/CenterContainer/vertical/resume"]
+margin_left = 38.0
+margin_right = 194.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 2 )
+text = "resume"
+
+[node name="quit" type="HBoxContainer" parent="Pause/CenterContainer/vertical"]
+margin_top = 320.0
+margin_right = 716.0
+margin_bottom = 369.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selector" type="Label" parent="Pause/CenterContainer/vertical/quit"]
+margin_right = 34.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 1 )
+text = "!"
+
+[node name="Text" type="Label" parent="Pause/CenterContainer/vertical/quit"]
+margin_left = 38.0
+margin_right = 336.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 2 )
+text = "save and quit"
