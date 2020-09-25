@@ -3,15 +3,15 @@
 [ext_resource path="res://scenes/Pause.gd" type="Script" id=1]
 [ext_resource path="res://ARCADECLASSIC.TTF" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=1]
 size = 128
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 48
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 48
 font_data = ExtResource( 2 )
 
@@ -20,6 +20,7 @@ pause_mode = 2
 layer = 100
 
 [node name="Pause" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -54,7 +55,7 @@ __meta__ = {
 [node name="title" type="Label" parent="Pause/CenterContainer/vertical"]
 margin_right = 716.0
 margin_bottom = 263.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 text = "game paused
 "
 
@@ -69,14 +70,14 @@ __meta__ = {
 [node name="Selector" type="Label" parent="Pause/CenterContainer/vertical/resume"]
 margin_right = 34.0
 margin_bottom = 49.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "!"
 
 [node name="Text" type="Label" parent="Pause/CenterContainer/vertical/resume"]
 margin_left = 38.0
 margin_right = 194.0
 margin_bottom = 49.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "resume"
 
 [node name="quit" type="HBoxContainer" parent="Pause/CenterContainer/vertical"]
@@ -90,12 +91,12 @@ __meta__ = {
 [node name="Selector" type="Label" parent="Pause/CenterContainer/vertical/quit"]
 margin_right = 34.0
 margin_bottom = 49.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "!"
 
 [node name="Text" type="Label" parent="Pause/CenterContainer/vertical/quit"]
 margin_left = 38.0
 margin_right = 336.0
 margin_bottom = 49.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "save and quit"

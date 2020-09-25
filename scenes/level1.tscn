@@ -53,35 +53,35 @@ region = Rect2( 240, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 3 )
-region = Rect2( 120, 0, 60, 85 )
+region = Rect2( 60, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 3 )
-region = Rect2( 180, 0, 60, 85 )
+region = Rect2( 120, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 60, 85 )
+atlas = ExtResource( 3 )
+region = Rect2( 180, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
-region = Rect2( 60, 0, 60, 85 )
+region = Rect2( 0, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 2 )
-region = Rect2( 120, 0, 60, 85 )
+region = Rect2( 60, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 2 )
-region = Rect2( 180, 0, 60, 85 )
+region = Rect2( 120, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 2 )
-region = Rect2( 240, 0, 60, 85 )
+region = Rect2( 180, 0, 60, 85 )
 
 [sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 3 )
-region = Rect2( 60, 0, 60, 85 )
+atlas = ExtResource( 2 )
+region = Rect2( 240, 0, 60, 85 )
 
 [sub_resource type="SpriteFrames" id=16]
 animations = [ {
@@ -90,20 +90,20 @@ animations = [ {
 "name": "idle",
 "speed": 6.0
 }, {
-"frames": [ SubResource( 8 ), SubResource( 9 ) ],
+"frames": [ SubResource( 8 ) ],
+"loop": false,
+"name": "jump",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "fall",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
 "loop": true,
 "name": "run",
 "speed": 15.0
-}, {
-"frames": [ SubResource( 15 ) ],
-"loop": false,
-"name": "jump",
-"speed": 10.0
 } ]
 
 [sub_resource type="AtlasTexture" id=17]
@@ -294,7 +294,6 @@ scale = Vector2( 0.8, 0.8 )
 z_index = -1
 frames = SubResource( 21 )
 animation = "up"
-frame = 3
 playing = true
 centered = false
 offset = Vector2( 1310, -100 )
@@ -305,7 +304,7 @@ scale = Vector2( 0.8, 0.8 )
 z_index = -1
 frames = SubResource( 21 )
 animation = "up"
-frame = 2
+frame = 3
 playing = true
 centered = false
 flip_v = true
@@ -317,7 +316,7 @@ scale = Vector2( 0.8, 0.8 )
 z_index = -1
 frames = SubResource( 21 )
 animation = "up"
-frame = 1
+frame = 2
 playing = true
 centered = false
 flip_v = true
@@ -329,7 +328,7 @@ scale = Vector2( 0.8, 0.8 )
 z_index = -1
 frames = SubResource( 21 )
 animation = "up"
-frame = 1
+frame = 2
 playing = true
 centered = false
 flip_v = true
@@ -341,6 +340,7 @@ scale = Vector2( 2, 2 )
 z_index = -1
 frames = SubResource( 36 )
 animation = "xbox"
+frame = 1
 playing = true
 offset = Vector2( 40, -12 )
 
@@ -350,7 +350,7 @@ scale = Vector2( 0.789959, 0.786912 )
 z_index = -1
 frames = SubResource( 36 )
 animation = "a"
-frame = 1
+frame = 4
 playing = true
 offset = Vector2( 40, -12 )
 
