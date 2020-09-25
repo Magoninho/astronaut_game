@@ -1,2 +1,3 @@
 # astronaut_game
-jogo do astronauta na godot
+jogo incrivel feito pela magoninho corporation enterteinement
+que será lançado nao sei quando
